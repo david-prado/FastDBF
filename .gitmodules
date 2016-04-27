@@ -1,0 +1,3 @@
+[submodule "src/externals/fastBF"]
+	path = src/externals/fastBF
+	url = https://gist.github.com/02e945562607fad170a1.git
