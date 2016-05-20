@@ -6,6 +6,7 @@
  */
 
 #include "DeWAFF.hpp"
+//#include "fastBilateral.hpp"
 
 Mat DeWAFF::filter(const Mat& A, const Mat& Laplacian, int w, double sigma_d, int sigma_r){
     //Pre-compute Gaussian domain weights.
