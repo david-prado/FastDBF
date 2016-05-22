@@ -10,7 +10,7 @@
 
 #include <iostream>
 #include <omp.h>
-#include <openacc.h>
+//#include <openacc.h>
 #include "Tools.hpp"
 
 using namespace std;
