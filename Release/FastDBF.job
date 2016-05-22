@@ -1,0 +1,21 @@
+#PBS -l nodes=1:ppn=32
+#PBS -l vmem=3gb
+#PBS -l walltime=00:30:00
+#PBS -T flush_cache
+#PBS -N "FastDBF"
+#PBS -q default
+
+# Preparar el entorno de ambiente
+module add opencv/3.1.0
+module add gcc/5.1.0
+ffmpeg/2.6.2
+
+INPUT=img/1024x768.jpg
+ITERATIONS=1
+OMP_NUM_THREADS=16
+
+# cambiar al directorio de ejecución
+cd ${PBS_O_WORKDIR}
+
+# Ejecutar tarea
+./FastDBF -b $ITERATIONS -i $INPUT

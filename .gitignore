@@ -26,8 +26,7 @@
 *.exe
 *.out
 *.app
+FastDBF
 
 # Other
-Release/src
 .DS_Store
-/Release/
