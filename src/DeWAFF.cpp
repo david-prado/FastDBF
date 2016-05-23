@@ -26,11 +26,11 @@ Mat DeWAFF::filter(const Mat& A, const Mat& Laplacian, int w, double sigma_d, in
 	Vec3f pixel;
 	double norm_F;
 
-	#pragma omp target
-	#pragma omp parallel for\
+	//#pragma omp target
+	//#pragma omp parallel for\
 			private(I,iMin,iMax,jMin,jMax,pixel,channels,dL,da,db,H,F,norm_F,L)\
 			shared(A,B,G,Laplacian,w,sigma_d,sigma_r)
-	//#pragma acc kernels
+	#pragma acc kernels
     for(int i = 0; i < A.rows; i++){
        for(int j = 0; j < A.cols; j++){
              //Extract local region.

@@ -28,5 +28,10 @@
 *.app
 FastDBF
 
+# Output Files
+FastDBF.o*
+FastDBF.e*
+*_DeWAFF.jpg
+
 # Other
 .DS_Store

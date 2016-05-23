@@ -1,21 +1,41 @@
 #PBS -l nodes=1:ppn=32
-#PBS -l vmem=3gb
-#PBS -l walltime=00:30:00
+#PBS -l walltime=00:05:00
 #PBS -T flush_cache
 #PBS -N "FastDBF"
 #PBS -q default
+#PBS -j oe
+
+##########################################
+#                                        #
+#   Output some useful job information.  #
+#                                        #
+##########################################
+
+echo ------------------------------------------------------
+echo -n 'Job is running on node $HOSTNAME' 
+echo ------------------------------------------------------
+echo PBS: qsub is running on $PBS_O_HOST
+echo PBS: originating queue is $PBS_O_QUEUE
+echo PBS: executing queue is $PBS_QUEUE
+echo PBS: working directory is $PBS_O_WORKDIR
+echo PBS: execution mode is $PBS_ENVIRONMENT
+echo PBS: job identifier is $PBS_JOBID
+echo PBS: job name is $PBS_JOBNAME
+echo PBS: node file is $PBS_NODEFILE
+echo PBS: current home directory is $PBS_O_HOME
+echo PBS: PATH = $PBS_O_PATH
+echo ------------------------------------------------------
 
 # Preparar el entorno de ambiente
 module add opencv/3.1.0
 module add gcc/5.1.0
 ffmpeg/2.6.2
 
-INPUT=img/1024x768.jpg
+INPUT="1024x768.jpg"
 ITERATIONS=1
-OMP_NUM_THREADS=16
 
 # cambiar al directorio de ejecución
 cd ${PBS_O_WORKDIR}
 
 # Ejecutar tarea
-./FastDBF -b $ITERATIONS -i $INPUT
+OMP_NUM_THREADS=32 ./FastDBF -b $ITERATIONS -i $INPUT
